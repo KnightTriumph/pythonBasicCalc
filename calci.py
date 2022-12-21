@@ -166,31 +166,6 @@ class Vector:
         return Sub
 
 
-V1 = Vector(3, 1, -4)
-V2 = Vector(8, -8, 4)
-V1.printVector()
-V2.printVector()
-
-V1.magnitudeCalc()
-print("Magnitude is: ", V1.mag)
-V2.magnitudeCalc()
-print("Magnitude is: ", V2.mag)
-
-VV2 = V1-V2
-VV2.printVector()
-# V2 = Vector()
-V3 = V1.directionCalc()
-V3.printVector()
-V4 = V2.directionCalc()
-V4.printVector()
-
-V5 = V1*V2
-print(V5)
-
-V6 = V1/V2
-V6.printVector()
-
-
 class Quad:
     def __init__(self, a, b, c, Disc=0):  # ax2+bx+c
         self.a = a
@@ -223,6 +198,85 @@ class Quad:
         print("The roots of the quadratic equation are {s1} and {s2}".format(s1=self.sols[0], s2=self.sols[1]))
 
 
+def BC():
+    ch = 'y'
+    while ch == 'y':
+        print("\t-----Basic Arithmetic-----")
+        a = int(input("\tEnter 1st number: "))
+        b = int(input("\tEnter 2nd number: "))
+        Num1 = BasicFns(a)
+        Num2 = BasicFns(b)
+        print("\t1. Add")
+        print("\t2. Subtract")
+        print("\t3. Multiply")
+        print("\t4. Divide")
+        print("\t5. Exit :(")
+        print()
+        opt = int(input("\tYour option, please: "))
+        if opt == 1:
+            Num3 = Num1 + Num2
+            print("\t", end="")
+            Num3.printBasic()
+        elif opt == 2:
+            Num3 = Num1 - Num2
+            print("\t", end="")
+            Num3.printBasic()
+        elif opt == 3:
+            Num3 = Num1 * Num2
+            print("\t", end="")
+            Num3.printBasic()
+        elif opt == 4:
+            Num3 = Num1 / Num2
+            print("\t", end="")
+            Num3.printBasic()
+        else:
+            break
+
+        ch = input("\tDo you wish to perform another arithmetic operation? [y/n]: ")
+
+
+def main():
+    # C1 = Complex()
+    # C2 = Complex()
+    # r1 = float(input("Enter the real value of 1st complex no: "))
+    # i1 = float(input("Enter the imaginary value of 1st complex no: "))
+    # C1.setReal(r1)
+    # C1.setImag(i1)
+    # r2 = float(input("Enter the real value of 2nd complex no: "))
+    # i2 = float(input("Enter the imaginary value of 2nd complex no: "))
+    # C2.setReal(r2)
+    # C2.setImag(i2)
+    #
+    # C3 = Complex()
+    # C3 = C1 - C2
+    # C3.printCromp()
+
+    ch = 'y'
+    while ch == 'y':
+        print()
+        print()
+        print("Hey, I'm Calci, your personal scientific calculator!")
+        print()
+        print("1. Calci performs basic arithmetic and factorial")
+        print("2. Calci performs powers and roots")
+        print("3. Calci performs complex numbers' arithmetic")
+        print("4. Calci solves quadratic equations")
+        print("5. Calci performs vector operations")
+        print("6. Calci performs matrix operations")
+        print("7. Calci exits :(")
+        print()
+        print()
+        opt = int(input("Your option, please: "))
+        if opt == 1:
+            BC()
+
+        print()
+        ch = input("Do you wish to perform another operation? [y/n]: ")
+
+
+main()
+
+
 # Q1 = Quad(1, 5, 6)
 # Q1.discCalc()
 # Q1.solve()
@@ -240,21 +294,29 @@ class Quad:
 # S1 = SingleCalc(5)
 # print(S1.squareRoot())
 
+# V1 = Vector(3, 1, -4)
+# V2 = Vector(8, -8, 4)
+# V1.printVector()
+# V2.printVector()
+#
+# V1.magnitudeCalc()
+# print("Magnitude is: ", V1.mag)
+# V2.magnitudeCalc()
+# print("Magnitude is: ", V2.mag)
+#
+# VV2 = V1-V2
+# VV2.printVector()
+# # V2 = Vector()
+# V3 = V1.directionCalc()
+# V3.printVector()
+# V4 = V2.directionCalc()
+# V4.printVector()
+#
+# V5 = V1*V2
+# print(V5)
+#
+# V6 = V1/V2
+# V6.printVector()
 
-def main():
-    C1 = Complex()
-    C2 = Complex()
-    r1 = float(input("Enter the real value of 1st complex no: "))
-    i1 = float(input("Enter the imaginary value of 1st complex no: "))
-    C1.setReal(r1)
-    C1.setImag(i1)
-    r2 = float(input("Enter the real value of 2nd complex no: "))
-    i2 = float(input("Enter the imaginary value of 2nd complex no: "))
-    C2.setReal(r2)
-    C2.setImag(i2)
 
-    C3 = Complex()
-    C3 = C1 - C2
-    C3.printCromp()
 
-# main()

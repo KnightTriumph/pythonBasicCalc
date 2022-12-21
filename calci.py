@@ -3,7 +3,7 @@ import cmath
 
 
 class Complex:
-    def __init__(self, real=0, imag=0):
+    def __init__(self, real=0.0, imag=0.0):
         self.real = real
         self.imag = imag
 
@@ -43,7 +43,7 @@ class Complex:
         return C3
 
     def printCromp(self):
-        print(str(self.real) + " i" + str(self.imag))
+        print(str(self.real) + "+ i" + str(self.imag))
 
 
 class SingleCalc:
@@ -230,22 +230,111 @@ def BC():
             print("\t", end="")
             Num3.printBasic()
         else:
+            print("Exited...")
             break
 
-        ch = input("\tDo you wish to perform another arithmetic operation? [y/n]: ")
+        ch = input("\tDo you wish to perform another ARITHMETIC operation? [y/n]: ")
+
+
+def PR():
+    ch = 'y'
+    while ch == 'y':
+        print("\t-----Powers, Roots and Factorial-----")
+        a = int(input("\tEnter the number: "))
+        Num1 = SingleCalc(a)
+        print("\t1. Square")
+        print("\t2. Cube")
+        print("\t3. Sq root")
+        print("\t4. Cu root")
+        print("\t5. Factorial")
+        print("\t6. Exit :(")
+        print()
+        opt = int(input("\tYour option, please: "))
+        if opt == 1:
+            print("\tResult: ", Num1.square())
+        elif opt == 2:
+            print("\tResult: ", Num1.cube())
+        elif opt == 3:
+            print("\tResult: ", Num1.squareRoot())
+        elif opt == 4:
+            print("\tResult: ", Num1.cubeRoot())
+        elif opt == 5:
+            print("\tResult: ", Num1.factorial())
+        else:
+            print("Exited...")
+            break
+
+        ch = input("\tDo you wish to perform another POWERS operation? [y/n]: ")
+
+
+def CA():
+    ch = 'y'
+    while ch == 'y':
+        print("\t-----Complex Numbers' Arithmetic-----")
+        r1 = float(input("\tEnter the REAL value of 1st complex no: "))
+        i1 = float(input("\tEnter the IMAGINARY value of 1st complex no: "))
+        C1 = Complex(r1, i1)
+        print()
+        r2 = float(input("\tEnter the REAL value of 2nd complex no: "))
+        i2 = float(input("\tEnter the IMAGINARY value of 2nd complex no: "))
+        C2 = Complex(r2, i2)
+        print("\t1. Add")
+        print("\t2. Subtract")
+        print("\t3. Multiply")
+        print("\t4. Divide")
+        print("\t5. Exit :(")
+        print()
+        opt = int(input("\tYour option, please: "))
+        if opt == 1:
+            C3 = C1 + C2
+            print("\t", end="")
+            C3.printCromp()
+        elif opt == 2:
+            C3 = C1 - C2
+            print("\t", end="")
+            C3.printCromp()
+        elif opt == 3:
+            C3 = C1 * C2
+            print("\t", end="")
+            C3.printCromp()
+        elif opt == 4:
+            C3 = C1 / C2
+            print("\t", end="")
+            C3.printCromp()
+        else:
+            print("Exited...")
+            break
+
+        ch = input("\tDo you wish to perform another COMPLEX operation? [y/n]: ")
+
+
+def QE():
+    ch = 'y'
+    while ch == 'y':
+        print("\t-----Quadratic Equation Solving-----")
+        print("\tQuadratic equations are of the standard form: aX^2 + bX + c = 0")
+        print()
+        a = int(input("\t\ta?: "))
+        b = int(input("\t\tb?: "))
+        c = int(input("\t\tc?: "))
+
+        Equat = Quad(a, b, c)
+        Equat.discCalc()
+        Equat.solve()
+        print("\n\t", end="")
+        Equat.printQuadEq()
+        print("\t", end="")
+        Equat.printQuadRoots()
+
+        ch = input("\tDo you wish to SOLVE another equation? [y/n]: ")
+
+
+def VX():
+    pass
 
 
 def main():
-    # C1 = Complex()
-    # C2 = Complex()
-    # r1 = float(input("Enter the real value of 1st complex no: "))
-    # i1 = float(input("Enter the imaginary value of 1st complex no: "))
-    # C1.setReal(r1)
-    # C1.setImag(i1)
-    # r2 = float(input("Enter the real value of 2nd complex no: "))
-    # i2 = float(input("Enter the imaginary value of 2nd complex no: "))
-    # C2.setReal(r2)
-    # C2.setImag(i2)
+
     #
     # C3 = Complex()
     # C3 = C1 - C2
@@ -257,8 +346,8 @@ def main():
         print()
         print("Hey, I'm Calci, your personal scientific calculator!")
         print()
-        print("1. Calci performs basic arithmetic and factorial")
-        print("2. Calci performs powers and roots")
+        print("1. Calci performs basic arithmetic")
+        print("2. Calci performs powers, roots and factorial")
         print("3. Calci performs complex numbers' arithmetic")
         print("4. Calci solves quadratic equations")
         print("5. Calci performs vector operations")
@@ -269,10 +358,20 @@ def main():
         opt = int(input("Your option, please: "))
         if opt == 1:
             BC()
-        if opt == 2:
-            pass
+        elif opt == 2:
+            PR()
+        elif opt == 3:
+            CA()
+        elif opt == 4:
+            QE()
+        elif opt == 5:
+            VX()
+        else:
+            print("Exited...")
+            print("Thanks for using Calci! <3")
+            break
         print()
-        ch = input("Do you wish to perform another operation? [y/n]: ")
+        ch = input("Do you wish to perform ANY other operation? [y/n]: ")
 
 
 main()

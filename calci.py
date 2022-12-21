@@ -3,7 +3,7 @@ import cmath
 
 
 class Complex:
-    def __init__(self, real = 0, imag = 0):
+    def __init__(self, real=0, imag=0):
         self.real = real
         self.imag = imag
 
@@ -15,8 +15,8 @@ class Complex:
 
     def __mul__(self, other):
         C3 = Complex()
-        C3.real = self.real*other.real - self.imag*other.imag
-        C3.imag = self.real*other.imag + self.imag*other.real
+        C3.real = self.real * other.real - self.imag * other.imag
+        C3.imag = self.real * other.imag + self.imag * other.real
 
         return C3
 
@@ -47,7 +47,7 @@ class Complex:
 
 
 class SingleCalc:
-    def __init__(self, n = 0):
+    def __init__(self, n=0):
         self.n = n
 
     def setN(self, n):
@@ -63,14 +63,14 @@ class SingleCalc:
         return math.sqrt(self.n)
 
     def cubeRoot(self):
-        return math.pow(self.n, 1/3)
+        return math.pow(self.n, 1 / 3)
 
     def factorial(self):
         return math.factorial(self.n)
 
 
 class BasicFns:
-    def __init__(self, n = 0):
+    def __init__(self, n=0):
         self.n = n
 
     def setN(self, n):
@@ -101,12 +101,11 @@ class BasicFns:
 
 
 class Vector:
-    def __init__(self, i = 0, j = 0, k = 0, mag = 0, dir = 0):
+    def __init__(self, i=0, j=0, k=0, mag=0):
         self.i = i
         self.j = j
         self.k = k
         self.mag = mag
-        self.dir = dir
 
     def setI(self, i):
         self.i = i
@@ -117,11 +116,33 @@ class Vector:
     def setK(self, k):
         self.k = k
 
-    # def
+    def magnitudeCalc(self):
+        self.mag = math.sqrt(self.i ** 2 + self.j ** 2 + self.k ** 2)
 
+    def directionCalc(self):
+        self.magnitudeCalc()
+        Dir = Vector()
+        Dir.i = self.i / self.mag
+        Dir.j = self.j / self.mag
+        Dir.k = self.j / self.mag
+        return Dir
+
+    def printVector(self):
+        print("The vector is: {i} i + {j} j + {k} k".format(i=self.i, j=self.j, k=self.k))
+
+
+V1 = Vector()
+V1.setI(2)
+V1.setJ(2)
+V1.setK(2)
+V1.magnitudeCalc()
+print("Magnitude is: ", V1.mag)
+# V2 = Vector()
+V2 = V1.directionCalc()
+V2.printVector()
 
 class Quad:
-    def __init__(self, a, b, c, Disc = 0):  # ax2+bx+c
+    def __init__(self, a, b, c, Disc=0):  # ax2+bx+c
         self.a = a
         self.b = b
         self.c = c
@@ -140,16 +161,16 @@ class Quad:
         self.Disc = self.b ** 2 - 4 * self.a * self.c
 
     def solve(self):
-        s1 = (-self.b + cmath.sqrt(self.Disc))/(2 * self.a)
-        s2 = (-self.b - cmath.sqrt(self.Disc))/(2 * self.a)
+        s1 = (-self.b + cmath.sqrt(self.Disc)) / (2 * self.a)
+        s2 = (-self.b - cmath.sqrt(self.Disc)) / (2 * self.a)
         self.sols.append(s1)
         self.sols.append(s2)
 
     def printQuadEq(self):
-        print("The equation is {a}X^2 + {b}X + {c} = 0".format(a = self.a, b = self.b, c =  self.c))
+        print("The equation is {a}X^2 + {b}X + {c} = 0".format(a=self.a, b=self.b, c=self.c))
 
     def printQuadRoots(self):
-        print("The roots of the quadratic equation are {s1} and {s2}".format(s1 = self.sols[0], s2 = self.sols[1]))
+        print("The roots of the quadratic equation are {s1} and {s2}".format(s1=self.sols[0], s2=self.sols[1]))
 
 
 # Q1 = Quad(1, 5, 6)
@@ -157,6 +178,7 @@ class Quad:
 # Q1.solve()
 # Q1.printQuadEq()
 # Q1.printQuadRoots()
+
 
 # B1 = BasicFns(5)
 # B2 = BasicFns(4)
@@ -184,6 +206,5 @@ def main():
     C3 = Complex()
     C3 = C1 - C2
     C3.printCromp()
-
 
 # main()

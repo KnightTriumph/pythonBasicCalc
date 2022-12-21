@@ -152,11 +152,11 @@ class Quad:
         print("The roots of the quadratic equation are {s1} and {s2}".format(s1 = self.sols[0], s2 = self.sols[1]))
 
 
-Q1 = Quad(1, 5, 6)
-Q1.discCalc()
-Q1.solve()
-Q1.printQuadEq()
-Q1.printQuadRoots()
+# Q1 = Quad(1, 5, 6)
+# Q1.discCalc()
+# Q1.solve()
+# Q1.printQuadEq()
+# Q1.printQuadRoots()
 
 # B1 = BasicFns(5)
 # B2 = BasicFns(4)

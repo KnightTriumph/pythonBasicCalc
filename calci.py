@@ -269,7 +269,8 @@ def main():
         opt = int(input("Your option, please: "))
         if opt == 1:
             BC()
-
+        if opt == 2:
+            pass
         print()
         ch = input("Do you wish to perform another operation? [y/n]: ")
 

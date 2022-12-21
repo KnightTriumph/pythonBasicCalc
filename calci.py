@@ -171,6 +171,7 @@ class Quad:
         self.a = a
         self.b = b
         self.c = c
+        self.Disc = Disc
         self.sols = []
 
     def setA(self, a):
@@ -330,15 +331,68 @@ def QE():
 
 
 def VX():
-    pass
+    ch = 'y'
+    while ch == 'y':
+        print("\t-----Vector Operations-----")
+        print("\t1. Magnitude Calculation")
+        print("\t2. Direction of the vector")
+        print("\t3. Add")
+        print("\t4. Subtract")
+        print("\t5. Scalar (dot) Product")
+        print("\t6. Vector (cross) Product")
+        print("\t7. Exit :(")
+        print()
+        opt = int(input("\tYour option, please: "))
+        print()
+        if opt == 1 or opt == 2:
+            print("\t\tEnter vector components (i, j, k) separated by a space: ", end="")
+            lt = list(map(int, input().split()))
+            Vec1 = Vector(lt[0], lt[1], lt[2])
+
+            if opt == 1:
+                Vec1.magnitudeCalc()
+                print("\tMagnitude of given vector is: ", Vec1.mag)
+
+            elif opt == 2:
+                Vec2 = Vec1.directionCalc()
+                print("\t", end="")
+                Vec2.printVector()
+
+        elif opt == 3 or opt == 4 or opt == 5 or opt == 6:
+            print("\t\tEnter vector 1 components (i, j, k) separated by a space: ", end="")
+            lt1 = list(map(int, input().split()))
+            Vec1 = Vector(lt1[0], lt1[1], lt1[2])
+
+            print("\t\tEnter vector 2 components (i, j, k) separated by a space: ", end="")
+            lt2 = list(map(int, input().split()))
+            Vec2 = Vector(lt2[0], lt2[1], lt2[2])
+
+            if opt == 3:
+                Vec3 = Vec1 + Vec2
+                print("\t", end="")
+                Vec3.printVector()
+
+            elif opt == 4:
+                Vec3 = Vec1 - Vec2
+                print("\t", end="")
+                Vec3.printVector()
+
+            elif opt == 5:
+                print("\tDot Product of the vectors is: ", Vec1 * Vec2)
+
+            elif opt == 6:
+                Vec3 = Vec1 / Vec2
+                print("\t", end="")
+                Vec3.printVector()
+
+        else:
+            print("Exited...")
+            break
+
+        ch = input("\tDo you wish to perform another VECTOR operation? [y/n]: ")
 
 
 def main():
-
-    #
-    # C3 = Complex()
-    # C3 = C1 - C2
-    # C3.printCromp()
 
     ch = 'y'
     while ch == 'y':
@@ -368,55 +422,11 @@ def main():
             VX()
         else:
             print("Exited...")
-            print("Thanks for using Calci! <3")
             break
         print()
         ch = input("Do you wish to perform ANY other operation? [y/n]: ")
+    print()
+    print("Thanks for using Calci! <3")
 
 
 main()
-
-
-# Q1 = Quad(1, 5, 6)
-# Q1.discCalc()
-# Q1.solve()
-# Q1.printQuadEq()
-# Q1.printQuadRoots()
-
-
-# B1 = BasicFns(5)
-# B2 = BasicFns(4)
-# B3 = BasicFns()
-# B3 = B1-B2
-# B3.printBasic()
-
-
-# S1 = SingleCalc(5)
-# print(S1.squareRoot())
-
-# V1 = Vector(3, 1, -4)
-# V2 = Vector(8, -8, 4)
-# V1.printVector()
-# V2.printVector()
-#
-# V1.magnitudeCalc()
-# print("Magnitude is: ", V1.mag)
-# V2.magnitudeCalc()
-# print("Magnitude is: ", V2.mag)
-#
-# VV2 = V1-V2
-# VV2.printVector()
-# # V2 = Vector()
-# V3 = V1.directionCalc()
-# V3.printVector()
-# V4 = V2.directionCalc()
-# V4.printVector()
-#
-# V5 = V1*V2
-# print(V5)
-#
-# V6 = V1/V2
-# V6.printVector()
-
-
-

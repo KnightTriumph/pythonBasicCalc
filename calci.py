@@ -130,16 +130,66 @@ class Vector:
     def printVector(self):
         print("The vector is: {i} i + {j} j + {k} k".format(i=self.i, j=self.j, k=self.k))
 
+    # Dot Product
 
-V1 = Vector()
-V1.setI(2)
-V1.setJ(2)
-V1.setK(2)
+    def __mul__(self, other):
+        dot = (self.i * other.i) + (self.j * other.j) + (self.k * other.k)
+        return dot
+
+    # Cross Product
+
+    def __truediv__(self, other):
+        Cross = Vector()
+
+        Cross.i = self.j * other.k - self.k * other.j
+        Cross.j = self.k * other.i - self.i * other.k
+        Cross.k = self.i * other.j - self.j * other.i
+
+        return Cross
+
+    def __add__(self, other):
+        Add = Vector()
+
+        Add.i = self.i + other.i
+        Add.j = self.j + other.j
+        Add.k = self.k + other.k
+
+        return Add
+
+    def __sub__(self, other):
+        Sub = Vector()
+
+        Sub.i = self.i - other.i
+        Sub.j = self.j - other.j
+        Sub.k = self.k - other.k
+
+        return Sub
+
+
+V1 = Vector(3, 1, -4)
+V2 = Vector(8, -8, 4)
+V1.printVector()
+V2.printVector()
+
 V1.magnitudeCalc()
 print("Magnitude is: ", V1.mag)
+V2.magnitudeCalc()
+print("Magnitude is: ", V2.mag)
+
+VV2 = V1-V2
+VV2.printVector()
 # V2 = Vector()
-V2 = V1.directionCalc()
-V2.printVector()
+V3 = V1.directionCalc()
+V3.printVector()
+V4 = V2.directionCalc()
+V4.printVector()
+
+V5 = V1*V2
+print(V5)
+
+V6 = V1/V2
+V6.printVector()
+
 
 class Quad:
     def __init__(self, a, b, c, Disc=0):  # ax2+bx+c

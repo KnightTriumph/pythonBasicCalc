@@ -199,6 +199,13 @@ class Quad:
         print("The roots of the quadratic equation are {s1} and {s2}".format(s1=self.sols[0], s2=self.sols[1]))
 
 
+class Matrix:
+    def __init__(self, r, c, mat):
+        self.r = r
+        self.c = c
+        self.mat = mat
+
+
 def BC():
     ch = 'y'
     while ch == 'y':

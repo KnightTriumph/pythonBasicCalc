@@ -200,10 +200,74 @@ class Quad:
 
 
 class Matrix:
-    def __init__(self, r, c, mat):
+    def __init__(self, r = None, c = None, mat = None):
         self.r = r
         self.c = c
         self.mat = mat
+
+    def matIn(self):
+        self.r = int(input("No. of rows: "))
+        self.c = int(input("No. of columns: "))
+        self.mat = []
+        for i in range(self.r):
+            col = []
+            for j in range(self.c):
+                elem = int(input("Enter the element at index {r} {c}: ".format(r=i + 1, c=j + 1)))
+                col.append(elem)
+            self.mat.append(col)
+
+    def matOut(self):
+        print()
+        print("The Matrix is: ")
+        for i in range(self.r):
+            for j in range(self.c):
+                print(self.mat[i][j], end='\t')
+            print()
+        print()
+
+    def __add__(self, other):
+        if (self.r != other.r) or (self.c != other.c):
+            print("These matrices cannot be added!")
+
+        else:
+            r = self.r
+            c = self.c
+            AddMatrix = Matrix(r, c)
+            AddMatrix.mat = []
+            for i in range(r):
+                AddMatrix.mat.append([])
+                for j in range(c):
+                    AddMatrix.mat[i].append(self.mat[i][j] + other.mat[i][j])
+
+            return AddMatrix
+
+    def __sub__(self, other):
+        if (self.r != other.r) or (self.c != other.c):
+            print("These matrices cannot be subtracted!")
+
+        else:
+            r = self.r
+            c = self.c
+            SubMatrix = Matrix(r, c)
+            SubMatrix.mat = []
+            for i in range(r):
+                SubMatrix.mat.append([])
+                for j in range(c):
+                    SubMatrix.mat[i].append(self.mat[i][j] - other.mat[i][j])
+
+            SubMatrix.matOut()
+
+
+Mat1 = Matrix()
+print("Matrix 1: ")
+Mat1.matIn()
+Mat1.matOut()
+Mat2 = Matrix()
+print("Matrix 2: ")
+Mat2.matIn()
+Mat2.matOut()
+
+Mat1 - Mat2
 
 
 def BC():
@@ -436,4 +500,4 @@ def main():
     print("Thanks for using Calci! <3")
 
 
-main()
+# main()

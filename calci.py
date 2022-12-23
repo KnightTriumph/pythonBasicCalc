@@ -258,7 +258,20 @@ class Matrix:
             SubMatrix.matOut()
 
     def __mul__(self, other):
-        pass
+        if self.c != other.r:
+            print("These matrices cannot be multiplied!")
+        else:
+            r = self.r
+            c = other.c
+            MulMatrix = Matrix(r, c)
+            MulMatrix.mat = [[0]*c]*r
+            MulMatrix.matOut()
+
+            for i in range(len(self.mat)):
+                for j in range(len(other.mat[0])):
+                    for k in range(len(self.mat)):
+                        MulMatrix.mat[i][j] += self.mat[i][k] * other.mat[k][j]
+            return MulMatrix
 
 
 Mat1 = Matrix()
@@ -271,7 +284,8 @@ print("Matrix 2: ")
 Mat2.matIn()
 Mat2.matOut()
 
-Mat1 - Mat2
+Mat3 = Mat1 * Mat2
+Mat3.matOut()
 
 
 def BC():

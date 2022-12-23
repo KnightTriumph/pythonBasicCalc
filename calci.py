@@ -257,10 +257,14 @@ class Matrix:
 
             SubMatrix.matOut()
 
+    def __mul__(self, other):
+        pass
+
 
 Mat1 = Matrix()
 print("Matrix 1: ")
 Mat1.matIn()
+
 Mat1.matOut()
 Mat2 = Matrix()
 print("Matrix 2: ")

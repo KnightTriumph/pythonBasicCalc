@@ -239,7 +239,7 @@ class Matrix:
                 for j in range(c):
                     AddMatrix.mat[i].append(self.mat[i][j] + other.mat[i][j])
 
-            return AddMatrix
+            AddMatrix.matOut()
 
     def __sub__(self, other):
         if (self.r != other.r) or (self.c != other.c):
@@ -282,17 +282,17 @@ class Matrix:
             MulMatrix.matOut()
 
 
-Mat1 = Matrix()
-print("Matrix 1: ")
-Mat1.matIn()
-
-Mat1.matOut()
-Mat2 = Matrix()
-print("Matrix 2: ")
-Mat2.matIn()
-Mat2.matOut()
-
-Mat1 * Mat2
+# Mat1 = Matrix()
+# print("Matrix 1: ")
+# Mat1.matIn()
+#
+# Mat1.matOut()
+# Mat2 = Matrix()
+# print("Matrix 2: ")
+# Mat2.matIn()
+# Mat2.matOut()
+#
+# Mat1 * Mat2
 
 
 def BC():
@@ -488,6 +488,42 @@ def VX():
         ch = input("\tDo you wish to perform another VECTOR operation? [y/n]: ")
 
 
+def MX():
+    ch = 'y'
+    while ch == 'y':
+        print("\t-----Matrix Operations-----")
+        print("\t1. Add")
+        print("\t2. Subtract")
+        print("\t3. Multiply")
+        print("\t4. Exit :(")
+
+        print()
+        opt = int(input("\tYour option, please: "))
+        print()
+        if opt == 1 or opt == 2 or opt == 3:
+
+            Mat1 = Matrix()
+            print("Matrix 1: ")
+            Mat1.matIn()
+            Mat1.matOut()
+
+            Mat2 = Matrix()
+            print("Matrix 2: ")
+            Mat2.matIn()
+            Mat2.matOut()
+
+            if opt == 1:
+                Mat1 + Mat2
+            elif opt == 2:
+                Mat1 - Mat2
+            elif opt == 3:
+                Mat1 * Mat2
+
+        else:
+            print("Exited...")
+            break
+
+        ch = input("\tDo you wish to perform another MATRIX operation? [y/n]: ")
 def main():
 
     ch = 'y'
@@ -516,6 +552,8 @@ def main():
             QE()
         elif opt == 5:
             VX()
+        elif opt == 6:
+            MX()
         else:
             print("Exited...")
             break
@@ -525,4 +563,4 @@ def main():
     print("Thanks for using Calci! <3")
 
 
-# main()
+main()
